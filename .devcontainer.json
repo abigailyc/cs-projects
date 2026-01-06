@@ -11,7 +11,10 @@
                 "/opt/codespace/extensions/lynbrook-cs-0.1.0.vsix",
                 "ms-python.python",
                 "vscjava.vscode-java-pack",
-                "oliver-ni.web-cat-vscode"
+                "oliver-ni.web-cat-vscode",
+                "-GitHub.copilot",
+                "-GitHub.copilot-chat",
+                "-ms-azuretools.vscode-azure-github-copilot"
             ],
             "settings": {
                 "files.autoSave": "off",
