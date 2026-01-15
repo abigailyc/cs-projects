@@ -21,7 +21,11 @@ RUN <<EOF
     apt update
     apt install -y python3
     apt install -y python3-pygame
-    # apt-get install inotify-tools
+
+    # may need to change location
+    apt-get install autotools-dev
+    apt-get install automake
+    apt-get install inotify-tools
 EOF
 
 RUN <<EOF
