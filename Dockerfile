@@ -5,7 +5,7 @@ RUN apt update
 RUN <<EOF
     apt install -y curl
     apt install -y git
- 
+    
     curl -sL https://deb.nodesource.com/setup_22.x -o /tmp/node_setup.sh
     bash /tmp/node_setup.sh
     apt install -y nodejs
