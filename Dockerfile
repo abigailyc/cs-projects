@@ -5,6 +5,7 @@ RUN apt update
 RUN <<EOF
     apt install -y curl
     apt install -y git
+    apt
     curl -sL https://deb.nodesource.com/setup_22.x -o /tmp/node_setup.sh
     bash /tmp/node_setup.sh
     apt install -y nodejs
@@ -23,9 +24,18 @@ RUN <<EOF
     apt install -y python3-pygame
 
     # may need to change location
+    apt-get install autoconf
     apt-get install autotools-dev
     apt-get install automake
+    apt-get install libtool
     apt-get install inotify-tools
+
+    """
+    ./autogen.sh
+    ./configure --prefix=/usr
+    make
+    make install
+    """
 EOF
 
 RUN <<EOF
