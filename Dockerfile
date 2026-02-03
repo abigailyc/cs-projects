@@ -2,10 +2,21 @@ FROM ubuntu:24.04
 
 RUN apt update
 
+# ch
+RUN apt-get update && apt-get install -y /
+    git \
+    fswatch \
+    inotify-tools \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+RUN curl -s https://raw.githubusercontent.com/gitwatch/gitwatch/master/gitwatch.sh -o /usr/local/bin/gitwatch.sh \ 
+    && chmod +x /usr/local/bin/gitwatch.sh
+
 RUN <<EOF
     apt install -y curl
     apt install -y git
-    
+
     curl -sL https://deb.nodesource.com/setup_22.x -o /tmp/node_setup.sh
     bash /tmp/node_setup.sh
     apt install -y nodejs
