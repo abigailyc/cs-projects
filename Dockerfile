@@ -1,21 +1,10 @@
 FROM ubuntu:24.04
 
-RUN apt update
-
-# ch
-RUN apt-get update && apt-get install -y /
-    git \
-    fswatch \
-    inotify-tools \
-    curl \
-    && rm -rf /var/lib/apt/lists/*
-WORKDIR /app
-RUN curl -s https://raw.githubusercontent.com/gitwatch/gitwatch/master/gitwatch.sh -o /usr/local/bin/gitwatch.sh \ 
-    && chmod +x /usr/local/bin/gitwatch.sh
+RUN apt-get update
 
 RUN <<EOF
     apt install -y curl
-    apt install -y git
+    apt-get update && apt-get install -y git
 
     curl -sL https://deb.nodesource.com/setup_22.x -o /tmp/node_setup.sh
     bash /tmp/node_setup.sh
@@ -33,20 +22,19 @@ RUN <<EOF
     apt update
     apt install -y python3
     apt install -y python3-pygame
+    rm -fr /var/lib/apt/lists/*
 
-    # may need to change location
-    apt-get install autoconf
+    apt-get install autoconf 
     apt-get install autotools-dev
     apt-get install automake
     apt-get install libtool
     apt-get install inotify-tools
+    rm -fr /var/lib/apt/lists/*
 
-    """
-    ./autogen.sh
-    ./configure --prefix=/usr
-    make
-    make install
-    """
+    # ./autogen.sh
+    # ./configure --prefix=/usr
+    # make
+    # make install
 EOF
 
 RUN <<EOF
@@ -60,5 +48,15 @@ RUN <<EOF
     mv lynbrook-cs-*.vsix /opt/codespace/extensions
     npm uninstall --global vsce
 EOF
+
+RUN apt-get update && apt-get install -y \
+    git \
+    fswatch \
+    inotify-tools \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+RUN curl -s https://raw.githubusercontent.com/gitwatch/gitwatch/master/gitwatch.sh -o /usr/local/bin/gitwatch.sh \ 
+    && chmod +x /usr/local/bin/gitwatch.sh
 
 RUN apt clean
