@@ -30,11 +30,6 @@ RUN <<EOF
     apt-get install libtool
     apt-get install inotify-tools
     rm -fr /var/lib/apt/lists/*
-
-    # ./autogen.sh
-    # ./configure --prefix=/usr
-    # make
-    # make install
 EOF
 
 RUN <<EOF
