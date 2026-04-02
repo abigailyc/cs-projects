@@ -30,6 +30,7 @@
                     "**/.DS_Store": true,
                     "**/Thumbs.db": true,
                     "bats": true,
+                    "fswatch": true
                 },
                 "java.server.launchMode": "Standard",
                 "redhat.telemetry.enabled": false,
