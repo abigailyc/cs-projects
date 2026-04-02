@@ -28,8 +28,8 @@
                     "**/.hg": true,
                     "**/CVS": true,
                     "**/.DS_Store": true,
-                    "**/Thumbs.db": true
-                    "bats": true;
+                    "**/Thumbs.db": true,
+                    "bats": true,
                 },
                 "java.server.launchMode": "Standard",
                 "redhat.telemetry.enabled": false,
