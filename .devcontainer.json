@@ -47,7 +47,7 @@
     },
     
     "workspaceFolder": "/app",
-    // "workspaceMount": "source=/Users/achen3312/Documents/GitHub/cs-projects,target=/app,type=bind",
+    "workspaceMount": "source=/app,target=/app,type=bind",
     "remoteUser": "root",
     "postCreateCommand": "/usr/local/bin/gitwatch.sh -r origin -b main /app"
 
