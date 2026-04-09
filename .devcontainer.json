@@ -2,7 +2,7 @@
 
     "build": {
         "context": ".",
-        "dockerfile": "Dockerfile"
+        "dockerfile": "Dockerfile",
     },
 
     "customizations": {
@@ -47,7 +47,7 @@
     },
     
     "workspaceFolder": "/app",
-    "workspaceMount": "source=/Users/achen3312/Documents/GitHub/cs-projects,target=/app,type=bind", // create bind for /app in dockerfile
+    "workspaceMount": "source=.,target=/app,type=bind", // create bind for /app in dockerfile
     "remoteUser": "root", // default user, need to create other users (students) and mount to /home
     // RUN useradd -r -m appuser (-m creates /home directory)
     // USER appuser (to run instructions in the new user)
