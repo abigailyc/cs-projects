@@ -51,6 +51,6 @@
     "remoteUser": "root", // default user, need to create other users (students) and mount to /home
     // RUN useradd -r -m appuser (-m creates /home directory)
     // USER appuser (to run instructions in the new user)
-    "postCreateCommand": "/usr/local/bin/gitwatch.sh -s 15 -r origin -b main /app"
-
+    "postStartCommand": "nohup bash ./autosave.sh >/tmp/autosave.log 2>&1 &"
+    // to ensure working, run "ps aux | grep autosave.sh" and "tail -f /tmp/autosave.log"
 }
