@@ -2,7 +2,7 @@
 
     "build": {
         "context": ".",
-        "dockerfile": "Dockerfile",
+        "dockerfile": "Dockerfile"
     },
 
     "customizations": {
@@ -45,6 +45,15 @@
                     "http://205.173.41.10/Web-CAT/WebObjects/Web-CAT.woa/wa/assignments/eclipse"
                 ]
             }
+        }
+    },
+
+    "image": "ghcr.io/markpatterson27/codespaces-vnc-image:universal",
+    "forwardPorts": [6080],
+    "portsAttributes": {
+        "6080": {
+            "label": "noVNC Viewer",
+            "onAutoForward": "openBrowser"
         }
     },
     
