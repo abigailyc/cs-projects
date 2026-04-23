@@ -62,6 +62,6 @@
     "remoteUser": "root", // default user, need to create other users (students) and mount to /home
     // RUN useradd -r -m appuser (-m creates /home directory)
     // USER appuser (to run instructions in the new user)
-    "postStartCommand": "nohup bash ./autosave.sh >/tmp/autosave.log 2>&1"
+    // "postStartCommand": "nohup bash ./autosave.sh >/tmp/autosave.log 2>&1"
     // to ensure working, run "ps auxww | grep autosave.sh" and "tail -f /tmp/autosave.log"
 }
