@@ -18,7 +18,7 @@
             ],
             "settings": {
                 "files.autoSave": "afterDelay",
-                "files.autoSaveDelay": 1000,
+                "files.autoSaveDelay": 5000,
                 "files.exclude": {
                     "Dockerfile": true,
                     "docs": true,
@@ -32,7 +32,9 @@
                     "**/Thumbs.db": true,
                     "bats": true,
                     "fswatch": true,
-                    ".autosave.sh": true
+                    "autosave.sh": true,
+                    "start-vnc-session.sh": true,
+                    "novnc-index.html": true
                 },
                 "java.server.launchMode": "Standard",
                 "redhat.telemetry.enabled": false,
@@ -48,7 +50,7 @@
         }
     },
 
-    "image": "ghcr.io/markpatterson27/codespaces-vnc-image:universal",
+    "image": "ghcr.io/markpatterson27/codespaces-vnc-image:latest",
     "forwardPorts": [6080],
     "portsAttributes": {
         "6080": {
@@ -62,6 +64,9 @@
     "remoteUser": "root", // default user, need to create other users (students) and mount to /home
     // RUN useradd -r -m appuser (-m creates /home directory)
     // USER appuser (to run instructions in the new user)
-    // "postStartCommand": "nohup bash ./autosave.sh >/tmp/autosave.log 2>&1"
+    "postStartCommand": {
+        // "cmd1": "nohup bash ./autosave.sh >/tmp/autosave.log 2>&1",
+        // "cmd2": "oryx build -p virtualenv_name=.venv --log-file /tmp/oryx-build.log --manifest-dir /tmp || echo 'Could not auto-build. Skipping.'"
+    }
     // to ensure working, run "ps auxww | grep autosave.sh" and "tail -f /tmp/autosave.log"
 }
