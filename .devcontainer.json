@@ -12,6 +12,7 @@
                 "ms-python.python",
                 "vscjava.vscode-java-pack",
                 "oliver-ni.web-cat-vscode",
+                "GitHub.vscode-pull-request-github",
                 "-GitHub.copilot",
                 "-GitHub.copilot-chat",
                 "-ms-azuretools.vscode-azure-github-copilot"
@@ -30,8 +31,6 @@
                     "**/CVS": true,
                     "**/.DS_Store": true,
                     "**/Thumbs.db": true,
-                    "bats": true,
-                    "fswatch": true,
                     "autosave.sh": true,
                     "start-vnc-session.sh": true,
                     "novnc-index.html": true
@@ -66,7 +65,6 @@
     // USER appuser (to run instructions in the new user)
     "postStartCommand": {
         // "cmd1": "nohup bash ./autosave.sh >/tmp/autosave.log 2>&1",
-        // "cmd2": "oryx build -p virtualenv_name=.venv --log-file /tmp/oryx-build.log --manifest-dir /tmp || echo 'Could not auto-build. Skipping.'"
     }
     // to ensure working, run "ps auxww | grep autosave.sh" and "tail -f /tmp/autosave.log"
 }

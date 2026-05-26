@@ -2,11 +2,6 @@ FROM ubuntu:24.04
 
 RUN apt-get update
 
-# RUN useradd -ms /bin/bash testuser
-# RUN echo 'testuser' 'testpassword' | chpasswd
-# USER testuser
-# WORKDIR /home/testuser
-
 RUN <<EOF
     apt install -y curl
     apt-get update && apt-get install -y git
