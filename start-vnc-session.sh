@@ -11,5 +11,5 @@ $WINDOW_MANAGER &
 VNC_PORT=$((5900 + "$DISP"))
 NOVNC_PORT=$((6080 + "$DISP"))
 
-x11vnc -localhost -shared -display :"$DISP" -forever -rfbport ${VNC_PORT} -bg -o "/tmp/x11vnc-${DISP}.log"
+x11vnc -localhost -shared -display :"$DISP" -forever -rfbport ${VNC_PORT} -bg -o "/tmp/x11vncdisplay.log"
 cd /opt/novnc/utils && ./novnc_proxy --vnc "localhost:${VNC_PORT}" --listen "${NOVNC_PORT}" &

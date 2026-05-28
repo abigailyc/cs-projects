@@ -45,7 +45,7 @@ RUN <<EOF
 EOF
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install xvfb x11vnc openbox \
+    && apt-get -y install xvfb x11vnc openbox tigervnc-standalone-server \
     && apt autoclean -y \
     && apt autoremove -y \
     && rm -rf /var/lib/apt/lists/*
