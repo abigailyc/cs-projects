@@ -2,7 +2,7 @@
 
     "build": {
         "context": ".",
-        "dockerfile": "Dockerfile",
+        "dockerfile": "Dockerfile"
     },
 
     "customizations": {
@@ -12,13 +12,14 @@
                 "ms-python.python",
                 "vscjava.vscode-java-pack",
                 "oliver-ni.web-cat-vscode",
+                "GitHub.vscode-pull-request-github",
                 "-GitHub.copilot",
                 "-GitHub.copilot-chat",
                 "-ms-azuretools.vscode-azure-github-copilot"
             ],
             "settings": {
                 "files.autoSave": "afterDelay",
-                "files.autoSaveDelay": 1000,
+                "files.autoSaveDelay": 5000,
                 "files.exclude": {
                     "Dockerfile": true,
                     "docs": true,
@@ -30,9 +31,9 @@
                     "**/CVS": true,
                     "**/.DS_Store": true,
                     "**/Thumbs.db": true,
-                    "bats": true,
-                    "fswatch": true,
-                    ".autosave.sh": true
+                    "autosave.sh": true,
+                    "start-vnc-session.sh": true,
+                    "novnc-index.html": true
                 },
                 "java.server.launchMode": "Standard",
                 "redhat.telemetry.enabled": false,
@@ -47,12 +48,23 @@
             }
         }
     },
+
+    "image": "ghcr.io/markpatterson27/codespaces-vnc-image:latest",
+    "forwardPorts": [6080],
+    "portsAttributes": {
+        "6080": {
+            "label": "noVNC Viewer",
+            "onAutoForward": "openBrowser"
+        }
+    },
     
     "workspaceFolder": "/app",
     "workspaceMount": "source=.,target=/app,type=bind", // create bind for /app in dockerfile
     "remoteUser": "root", // default user, need to create other users (students) and mount to /home
     // RUN useradd -r -m appuser (-m creates /home directory)
     // USER appuser (to run instructions in the new user)
-    "postStartCommand": "nohup bash ./autosave.sh >/tmp/autosave.log 2>&1"
+    "postStartCommand": {
+        // "cmd1": "nohup bash ./autosave.sh >/tmp/autosave.log 2>&1",
+    }
     // to ensure working, run "ps auxww | grep autosave.sh" and "tail -f /tmp/autosave.log"
 }
